@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		 <link rel="stylesheet" href="/xstj/public/static/bootstrap/css/bootstrap.min.css"  media="all">
+		 <script type="text/javascript " src="/xstj/public/static/bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div>
+		<ul>
+		{volist name='list' id='user'}
+		    <li> {$user.id }</li>
+		    <li> {$user.nj}</li>
+			<li>{$user.bj}</li>
+			<li>{$user.xm}</li>
+			<li>{$user.father}</li>
+			<li>{$user.fwork}</li>
+			<li>{$user.mother}</li>
+			<li>{$user.mwork}</li>
+			<li>{$user.telno}</li>
+			<li>{$user.father}</li>
+			<li>{$user.shiji}</li>
+			<li>{$user.photo1}</li>
+			<hr>
+		{/volist}
+		</ul>
+		</div>
+		{$list|raw}
+	</body>
+</html>

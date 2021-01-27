@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>教师“之江汇”数据采集</title>
+  <link rel="stylesheet" href="/zjhsjtj/public/static/layui/css/layui.css"  media="all">
+<script src="/zjhsjtj/public/static/js/jquery.min.js" type="text/javascript"></script>
+<script src="/zjhsjtj/public/static/js/jquery.uploadifive.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="/zjhsjtj/public/static/js/uploadifive.css">
+
+ 
+  <!-- <script src="/zjhsjtj/public/static/js/jquery.js" ></script>  -->
+ 
+<script>
+ function showSite(str)
+ {
+    // if (str=="")
+    // {
+    //     document.getElementById("txtHint").innerHTML="";
+    //     return;
+    // } 
+     if (window.XMLHttpRequest)
+     {
+         // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+         xmlhttp=new XMLHttpRequest();
+     }
+     else
+     {
+         // IE6, IE5 浏览器执行代码
+         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+     }
+     xmlhttp.onreadystatechange=function()
+     {
+         if (xmlhttp.readyState==4 && xmlhttp.status==200)
+         {
+             document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+         }
+     }
+     xmlhttp.open("GET","/zjhsjtj/public/index/index/cl?q="+str,true);
+     xmlhttp.send();
+ };
+ 
+ function teacherchaxun(str)
+ {
+    // if (str=="")
+    // {
+    //     document.getElementById("txtHint").innerHTML="";
+    //     return;
+    // } 
+     if (window.XMLHttpRequest)
+     {
+         // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+         xmlhttp=new XMLHttpRequest();
+     }
+     else
+     {
+         // IE6, IE5 浏览器执行代码
+         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+     }
+     xmlhttp.onreadystatechange=function()
+     {
+         if (xmlhttp.readyState==4 && xmlhttp.status==200)
+         {
+             document.getElementById("zhliebiao").innerHTML=xmlhttp.responseText;
+         }
+     }
+     xmlhttp.open("GET","/zjhsjtj/public/index/teacher/teacherzhanghao?name="+str,true);
+     xmlhttp.send();
+ };
+</script>
+
+<style type="text/css">
+body {
+	font: 13px Arial, Helvetica, Sans-serif;
+}
+.uploadifive-button {
+	float: left;
+	margin-right: 10px;
+}
+#queue {
+	border: 1px solid #E5E5E5;
+	height: 177px;
+	overflow: auto;
+	margin-bottom: 10px;
+	padding: 0 3px 3px;
+	width: 300px;
+}
+</style>
+
+ </head>
+ <body>
+ <div class="layui-container">
+
+      <form class="form-signin" method="POST" enctype="multipart/form-data" action="{:url('index/teacher/shujucl')}"  target="rss" name="ff" id="form">
+        				
+				
+		<div  class="row">
+		<table class="layui-table" lay-even="" lay-skin="nob">
+		<tr><td   height=140 background="/zjhsjtj/public/static/pic/banner3.jpg"	  style="bold"	><font size=6  >长兴古城中学“之江汇”教师信息采集</font></td></tr>
+		
+		</table>
+		
+		</div>
+		 
+		<div  class="row">
+		<table  class="layui-table"  lay-skin="line">
+		<tr><td colspan="2" ><font color="red" size="4">说明：账号不用填写，写入名字就可以选择。不要选错，信息只能填写一遍。</font></td> </tr>	
+			
+		<input type="hidden" name="APC_UPLOAD_PROGRESS" id="progress_key" value="upid" />
+			
+			<tr><td bgcolor="#BCE8F1" colspan="2">个人信息</td> </tr>
+				
+				
+				<tr><td>教师姓名：</td><td><input type="text"  name="xm" required onkeyup="teacherchaxun(this.value)" /></td></tr>
+				<tr><td>账号：</td><td>
+				<div id="zhliebiao">
+									 <input type="radio" name="zhanghao" value="" disabled />无账号
+				</div>
+				</td></tr>
+				
+				</td></tr>
+				<tr><td bgcolor="#BCE8F1" colspan="2">任教班级</td> </tr>
+				
+				<tr><td colspan="2" ><font color="red" size="4">说明：班级请填写 “701” 或 “713” 等，任教多个班级用"@"隔开，例如“ 701@710@801” 。如果是任教整个年级，就填写“700”，“800”或者“900”</font></td> </tr>
+				
+				<tr><td width="30%">科目选择</td><td>班级	</td></tr>
+				
+				<tr><td width="30%">
+				<!--select name="kemu1[0]">
+					<option value="" selected>请选择</option>
+					<option value="语文">语文</option>
+					<option value="数学">数学</option>
+					<option value="英语">英语</option>
+					<option value="科学">科学</option>
+					<option value="历史与社会">历史与社会</option>
+					<option value="信息技术">信息技术</option>	
+					<option value="道德与法治">道德与法治</option>	
+					<option value="体育">体育</option>	
+					<option value="音乐">音乐</option>	
+					<option value="美术">美术</option>
+					<option value="心理健康">心理健康</option>	
+				</select-->
+				<input type="checkbox" name="kemu[]" value="语文" />语文
+				</td><td>
+				<input type="text" name="rs[语文]" value="" /> 
+				
+				</td></tr>
+				<tr><td width="30%">
+				<input type="checkbox" name="kemu[]" value="数学" />数学
+				</td><td>
+				<input type="text" name="rs[数学]" value="" /> 				
+				</td></tr>
+				
+				<tr><td width="30%">
+				<input type="checkbox" name="kemu[]" value="英语" />英语
+				</td><td>
+				<input type="text" name="rs[英语]" value="" /> 				
+				</td></tr>
+				
+				<tr><td width="30%">
+				<input type="checkbox" name="kemu[]" value="科学" />科学
+				</td><td>
+				<input type="text" name="rs[科学]" value="" /> 				
+				</td></tr>
+				
+				<tr><td width="30%">
+				<input type="checkbox" name="kemu[]" value="历史与社会" />历史与社会
+				</td><td>
+				<input type="text" name="rs[历史与社会]" value="" /> 				
+				</td></tr>
+				
+				<tr><td width="30%">
+				<input type="checkbox" name="kemu[]" value="信息技术" />信息技术
+				</td><td>
+				<input type="text" name="rs[信息技术]" value="" /> 				
+				</td></tr>
+				
+				<tr><td width="30%">
+				<input type="checkbox" name="kemu[]" value="道德与法治" />道德与法治
+				</td><td>
+				<input type="text" name="rs[道德与法治]" value="" /> 				
+				</td></tr>
+				
+				<tr><td width="30%">
+				<input type="checkbox" name="kemu[]" value="体育" />体育
+				</td><td>
+				<input type="text" name="rs[体育]" value="" /> 				
+				</td></tr>
+				
+				<tr><td width="30%">
+				<input type="checkbox" name="kemu[]" value="美术" />美术
+				</td><td>
+				<input type="text" name="rs[美术]" value="" /> 				
+				</td></tr>
+				
+				
+				<tr><td width="30%">
+				<input type="checkbox" name="kemu[]" value="音乐" />音乐
+				</td><td>
+				<input type="text" name="rs[音乐]" value="" /> 				
+				</td></tr>
+				
+				<tr><td width="30%">
+				<input type="checkbox" name="kemu[]" value="心理健康" />心理健康
+				</td><td>
+				<input type="text" name="rs[心理健康]" value="" /> 				
+				</td></tr>
+				
+				<tr><td bgcolor="#BCE8F1" colspan="2">是班主任，请填写一个班级，如“701”；不是请填写“否”</td> </tr>
+				<tr><td width="30%">班级：</td>
+				<td><input type="text" name="isbzr" value="" required /></td></tr>
+				
+				<tr><td></td><td><input  class="layui-btn  layui-btn-lg"  type="submit" name=" "  id="submit_btn"  value="提交"    /></td></tr>
+			 
+		</table>
+		</div>
+		
+		<div class="layui-container">
+          <label>
+            
+          </label>
+		  <label>
+            
+          </label>
+        </div>
+		</form>
+		<div  class="row" >
+		<table  class="layui-table"  lay-skin="line">
+		<tr><td  colspan=2>
+		<iframe name="rss" id="myfr" style="display:block" style="width:120" frameborder="0"    ></iframe>
+		</td></tr>
+		</table>
+		</div>
+		
+        </div>
+		<div class="layui-container">
+           <div class="container" >
+          			  
+                     <p class="text-muted"> © ljesu 版权所有.<a href="http://www.beian.miit.gov.cn">浙ICP备20019095号-1</a>.</p>
+          		    
+                   </div>
+        </div>
+        </div>
+        <!--label  >商品：</label><br-->
+		
+		
+		
+		
+          
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/zjhsjtj/public/static/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="/zjhsjtj/public/static/layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script type="text/javascript">
+
+			 
+{php} $timestamp = time(); {/php}
+
+		$(function() {
+			$('#file_upload').uploadifive({
+				'auto'             : false,
+				'checkScript'      : "check-exists.php",
+				'fileType'         : 'image/png',
+				'formData'         : {
+									   'timestamp' : '{php} echo $timestamp;{/php}',
+									   'token'     : '{php} echo md5('unique_salt' . $timestamp);{/php}'
+				                     },
+				'queueID'          : 'queue',
+				'uploadScript'     : "uploadifive.php" ,
+				'onUploadComplete' : function(file, data) { console.log(data); }
+			});
+		});
+  </body>
+
+</html>

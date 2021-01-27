@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>提交结果</title>
+
+   <link rel="stylesheet" href="/yqtj/public/static/layui/css/layui.css"  media="all">
+
+    
+  </head>
+
+  <body >
+   <div class="layui-container">
+   <form class="form-signin"  >
+   <div class="row" align="center">
+		<img src="/yqtj/public/static/pic/dd.jpg"  height=280 width=280 />
+		</div>
+   <div  class="row">
+		
+		
+		<table class="layui-table" lay-even="" lay-skin="nob">
+		<tr><td colspan=2 align="center"> 提交成功 </td></tr>
+		<tr><td   >提醒： </td><td>{$xm},老师，你的资料已经上传 </td></tr>
+		</table>
+		
+		
+		</div>
+   
+   
+   </form>
+   </div>
+   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/yqtj/public/static/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="/yqtj/public/static/layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+layui.use('element', function(){
+  var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+  
+  //监听导航点击
+  element.on('nav(demo)', function(elem){
+    //console.log(elem)
+    layer.msg(elem.text());
+  });
+});
+</script>
+  </body>
+  </html>

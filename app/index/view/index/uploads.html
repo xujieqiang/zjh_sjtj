@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>榜样家庭信息填报</title>
+  <link rel="stylesheet" href="/xstj/public/static/layui/css/layui.css"  media="all">
+  
+  <!-- <script src="/xstj/public/static/js/jquery.js" ></script>  -->
+ 
+</head>
+ <body>
+ <div class="layui-container">
+
+      <!-- <form class="form-signin" method="POST" enctype="multipart/form-data" action="/xstj/public/index/index/shujucl"  target="rss" name="ff" id="form"> -->
+        				
+				
+		<div  class="row">
+		<table class="layui-table" lay-even="" lay-skin="nob">
+		<tr><td   height=120 background="/xstj/public/static/pic/banner3.jpg"	  style="bold"	><font size=3  >言传身教立榜样，知行合一促成长”古城中学第三届行知榜样家庭评选活动</font></td></tr>
+		
+		</table>
+		<table class="layui-table" lay-even="" lay-skin="nob">
+		<tr><td  ><font  >
+		<p>
+		参与对象：七年级，八年级</p></font></td> </tr>
+		</table>
+		</div>
+		 <div  class="row">
+		 <table  class="layui-table"  lay-skin="line">
+			 <tr><td bgcolor="#BCE8F1" colspan="2">全家福照片</td> </tr>
+			 <tr ><td>
+			 <form action="/xstj/public/index/index/shangchuan" enctype="multipart/form-data" method="post">
+			 
+			 <input type="file" name="image" /> <br> 
+			 <input type="submit" value="上传" /> 
+			 </form> 
+			 </td></tr>
+	
+	
+	
+	   </table>
+	
+	       <div class="layui-container">
+	          <label>
+	            注：每项必填,信息提示如下：
+	          </label>
+			  <label>
+	            
+	          </label>
+	        </div>
+			</form>
+			<div  class="row" >
+			<table  class="layui-table"  lay-skin="line">
+			<tr><td  colspan=2>
+			<iframe name="rss" id="myfr" style="display:block" style="width:80" frameborder="0"    ></iframe>
+			</td></tr>
+			</table>
+			</div>
+			
+	        </div>
+			<div class="layui-container">
+	          <label>
+	            © 2009-2019 Aliyun.com 版权所有
+	          </label>
+			  <label>
+	             <a href="http://www.beian.miit.gov.cn">浙ICP备17046185号-1</a>
+	          </label>
+	        </div>
+	 
+	        <!--label  >商品：</label><br-->
+			
+			
+			
+			
+	          
+	
+	     
+	
+	
+	    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	    <script src="/xstj/public/static/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+		<script src="/xstj/public/static/layui/layui.js" charset="utf-8"></script>
+	<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+	<script>
+	 layui.use('upload', function(){
+	            var $ = layui.jquery;
+	      var upload = layui.upload;    
+	            
+	            var uploadInst = upload.render({
+	                elem:'#btn-thumb',
+	                url: "{:url('admin/common/upload')}",//上传接口
+	                size:500,
+	                exts: 'jpg|png|jpeg',
+	                before: function(obj){
+	                    obj.preview(function(index, file, result){
+	                        $('#thumb-preview').attr('src',result);
+	                        });
+	                    },
+	                    done: function(res){
+	                        console.log(res);
+	                        if(res.code == 0){
+	                            return layer.msg(res.message);
+	                        }
+	                        $('#input-thumb').val(res.filepath);
+	                    }
+	});
+	             });
+				 
+	
+	  </body>
+	
+	</html>
+
+
+<tr><td bgcolor="#BCE8F1" colspan="2">全家福照片</td> </tr>
+				<tr><td colspan="2">
+				必须上传：<input type="file" name="photo2" /> <br> 
+				</td></tr>

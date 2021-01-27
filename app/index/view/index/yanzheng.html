@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>验证榜样家庭信息填报</title>
+
+   <link rel="stylesheet" href="/xstj/public/static/layui/css/layui.css"  media="all">
+
+    <script>
+function showSite(str)
+{
+   // if (str=="")
+   // {
+   //     document.getElementById("txtHint").innerHTML="";
+   //     return;
+   // } 
+    if (window.XMLHttpRequest)
+    {
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET","/xstj/public/index/index/cl?q="+str,true);
+    xmlhttp.send();
+}
+ function zxh(str1)
+{
+	var v1 = document.ff.njj.value;
+    if (str1=="")
+    {
+        document.getElementById("zxhls").innerHTML="请选择年级和班级";
+        return;
+    } 
+    if (window.XMLHttpRequest)
+    {
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            document.getElementById("zxhls").innerHTML=xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET","/xstj/public/index/index/wodels?p="+str1+"&q="+v1,true);
+    xmlhttp.send();
+}
+
+</script>
+  </head>
+
+  <body >
+   
+    <div class="layui-container">
+
+      <form class="form-signin" method="POST" action="/xstj/public/index/index/yzpd"  target="rss" name="ff" id="form1">
+        				
+				
+		<div  class="row">
+		<table class="layui-table" lay-even="" lay-skin="nob">
+		<tr><td   height=80 background="/tp2/public/static/pic/banner1.jpg"	  style="bold"	><font size=3  >“言传身教立榜样，知行合一促成长”古城中学第三届行知榜样家庭评选活动</font></td></tr>
+		
+		</table>
+		<table class="layui-table" lay-even="" lay-skin="nob">
+		<tr><td  ><font  >你的信息已经存在，只能修改！<br />验证信息正确与否</font></td> </tr>
+		</table>
+		</div>
+		 
+		<div  class="row">
+		<table  class="layui-table"  lay-skin="line">
+			<input type="hidden" name="id" value="{$id}" />
+			
+			 
+
+
+			 
+				<tr><td>你的姓名</td><td><input type="text"  name="xm" required /></td></tr>
+				<tr><td>父亲姓名</td><td><input type="text"  name="father" required /></td></tr>
+				 
+				<tr><td>母亲姓名</td><td><input type="text"  name="mother" required /></td></tr>
+		 
+				<tr><td></td><td><input  class="layui-btn  layui-btn-lg"  type="submit" name=" "  value="验证"    /></td></tr>
+			 
+		</table>
+		</div>
+		
+		<div class="layui-container">
+          <label>
+            注：每项必填,信息提示如下：
+          </label>
+		  <label>
+            
+          </label>
+        </div>
+		</form>
+		<div  class="row" >
+		<table  class="layui-table"  lay-skin="line">
+		<tr><td  colspan=2>
+		<iframe name="rss" id="myfr" style="display:block" style="width:150" frameborder="0"    ></iframe>
+		</td></tr>
+		</table>
+		</div>
+		
+        </div>
+		<div class="layui-container">
+          <label>
+            © 2009-2019 Aliyun.com 版权所有
+          </label>
+		  <label>
+             <a href="http://www.beian.miit.gov.cn">浙ICP备17046185号-1</a>
+          </label>
+        </div>
+        </div>
+        <!--label  >商品：</label><br-->
+		
+		
+		
+		
+          
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/tp2/public/static/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="/tp2/public/static/layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+layui.use('element', function(){
+  var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+  
+  //监听导航点击
+  element.on('nav(demo)', function(elem){
+    //console.log(elem)
+    layer.msg(elem.text());
+  });
+});
+</script>
+  </body>
+</html>

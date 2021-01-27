@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>榜样家庭信息填报</title>
+  <link rel="stylesheet" href="/xstj/public/static/layui/css/layui.css"  media="all">
+  
+  <!-- <script src="/xstj/public/static/js/jquery.js" ></script>  -->
+ 
+<script>
+ function showSite(str)
+ {
+    // if (str=="")
+    // {
+    //     document.getElementById("txtHint").innerHTML="";
+    //     return;
+    // } 
+     if (window.XMLHttpRequest)
+     {
+         // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+         xmlhttp=new XMLHttpRequest();
+     }
+     else
+     {
+         // IE6, IE5 浏览器执行代码
+         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+     }
+     xmlhttp.onreadystatechange=function()
+     {
+         if (xmlhttp.readyState==4 && xmlhttp.status==200)
+         {
+             document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+         }
+     }
+     xmlhttp.open("GET","/xstj/public/index/index/cl?q="+str,true);
+     xmlhttp.send();
+ }
+</script>
+ </head>
+ <body>
+ <div class="layui-container">
+
+      <form class="form-signin" method="POST" enctype="multipart/form-data" action="/xstj/public/index/index/shujucl"  target="rss" name="ff" id="form">
+        				
+				
+		<div  class="row">
+		<table class="layui-table" lay-even="" lay-skin="nob">
+		<tr><td   height=120 background="/xstj/public/static/pic/banner3.jpg"	  style="bold"	><font size=3  >“言传身教立榜样，知行合一促成长”古城中学第三届行知榜样家庭评选活动</font></td></tr>
+		
+		</table>
+		<table class="layui-table" lay-even="" lay-skin="nob">
+		<tr><td  ><font  >
+		<p>
+		修改</p></font></td> </tr>
+		</table>
+		</div>
+		 
+		<div  class="row">
+		<table  class="layui-table"  lay-skin="line">
+			
+			
+		
+			
+			<tr><td bgcolor="#BCE8F1" colspan="2">个人信息</td> </tr>
+				<tr><td width="30%">年级：</td><td>
+				<select name="nj" onchange="showSite(this.value)">
+					<option value="">请选择</option>
+					<option value="7" {if condition="$vo.nj eq '7'"} selected {/if} >初一</option>
+					<option value="8"  {if condition="$vo.nj eq '8'"} selected {/if}>初二</option>
+				</select>
+				</td></tr>
+				<tr><td width="30%">班级：</td><td>
+				<div id="txtHint"><select name="bj">
+				    <select name="bj" onchange="  ">
+				    	<option value="">选择班级</option>
+				    	<option value="01" {if condition="$vo.bj eq '01'"} selected {/if}>(1)班</option>
+				    	<option value="02" {if condition="$vo.bj eq '02'"} selected {/if} >(2)班</option>
+				    	<option value="03" {if condition="$vo.bj eq '03'"} selected {/if} >(3)班</option>
+				    	<option value="04" {if condition="$vo.bj eq '04'"} selected {/if} >(4)班</option>
+				    	<option value="05" {if condition="$vo.bj eq '05'"} selected {/if}>(5)班</option>
+				    	<option value="06" {if condition="$vo.bj eq '06'"} selected {/if} >(6)班</option>
+				    	<option value="07" {if condition="$vo.bj eq '07'"} selected {/if}>(7)班</option>
+				    	<option value="08" {if condition="$vo.bj eq '08'"} selected {/if}>(8)班</option>
+				    	<option value="09" {if condition="$vo.bj eq '09'"} selected {/if}>(9)班</option>
+				    	<option value="10" {if condition="$vo.bj eq '10'"} selected {/if}>(10)班</option>
+				    	<option value="11" {if condition="$vo.bj eq '11'"} selected {/if}>(11)班</option>
+				    	<option value="12" {if condition="$vo.bj eq '12'"} selected {/if}>(12)班</option>
+				    	<option value="13" {if condition="$vo.bj eq '13'"} selected {/if}>(13)班</option>
+				    	<option value="14" {if condition="$vo.bj eq '14'"} selected {/if}>(14)班</option>
+				    	<option value="15" {if condition="$vo.bj eq '15'"} selected {/if}>(15)班</option>
+				    	<option value="16" {if condition="$vo.bj eq '16'"} selected {/if}>(16)班</option></select>
+					
+					 
+				</select></div>
+				</td></tr>
+				<tr><td>学生姓名</td><td><input type="text"  name="xm" value="{$vo.xm}" required /></td></tr>
+				<tr><td bgcolor="#BCE8F1" colspan="2">监护人信息</td> </tr>
+				 
+				
+				<tr><td>父亲姓名</td><td><input type="text"  name="father" value="{$vo.father}" required /></td></tr>
+				<tr><td>父亲工作</td><td><input type="text"  name="fwork" value="{$vo.fwork}" required /></td></tr>
+				<tr><td>母亲姓名</td><td><input type="text"  name="mother" value="{$mother}" required /></td></tr>
+				<tr><td>母亲工作</td><td><input type="text"  name="mwork" value="{$mwork}" required /></td></tr>
+				 
+				<tr><td bgcolor="#BCE8F1" colspan="2">联系方式</td> </tr>
+				<tr><td>手机号码</td><td><input type="text"  name="telno" value="{$vo.telno}" required /></td></tr>
+				<tr><td bgcolor="#BCE8F1" colspan="2">家庭事迹材料</td> </tr>
+				<tr><td colspan="2">
+				<textarea placeholder="请输入内容" name="shiji" value="{$vo.shiji}" class="layui-textarea"></textarea>
+				</td></tr>
+				 <tr><td bgcolor="#BCE8F1" colspan="2">全家福照片</td> </tr>
+				<tr><td colspan="2">
+				必须上传：<input type="file" name="photo2" /> <br> 
+				</td></tr>
+				
+			
+			 
+			 
+			  
+			 
+			   
+				<tr><td></td><td><input  class="layui-btn  layui-btn-lg"  type="submit" name=" "  value="提交"    /></td></tr>
+			 
+		</table>
+		</div>
+		
+		<div class="layui-container">
+          <label>
+            注：每项必填,信息提示如下：
+          </label>
+		  <label>
+            
+          </label>
+        </div>
+		</form>
+		<div  class="row" >
+		<table  class="layui-table"  lay-skin="line">
+		<tr><td  colspan=2>
+		<iframe name="rss" id="myfr" style="display:block" style="width:80" frameborder="0"    ></iframe>
+		</td></tr>
+		</table>
+		</div>
+		
+        </div>
+		<div class="layui-container">
+          <label>
+            © 2009-2019 Aliyun.com 版权所有
+          </label>
+		  <label>
+             <a href="http://www.beian.miit.gov.cn">浙ICP备17046185号-1</a>
+          </label>
+        </div>
+        </div>
+        <!--label  >商品：</label><br-->
+		
+		
+		
+		
+          
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/xstj/public/static/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="/xstj/public/static/layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+ layui.use('upload', function(){
+            var $ = layui.jquery;
+      var upload = layui.upload;    
+            
+            var uploadInst = upload.render({
+                elem:'#btn-thumb',
+                url: "{:url('admin/common/upload')}",//上传接口
+                size:500,
+                exts: 'jpg|png|jpeg',
+                before: function(obj){
+                    obj.preview(function(index, file, result){
+                        $('#thumb-preview').attr('src',result);
+                        });
+                    },
+                    done: function(res){
+                        console.log(res);
+                        if(res.code == 0){
+                            return layer.msg(res.message);
+                        }
+                        $('#input-thumb').val(res.filepath);
+                    }
+});
+             });
+			 
+
+  </body>
+
+</html>
